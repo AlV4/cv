@@ -74,7 +74,7 @@
                 <div class="summary">
                     <p>I am a web programmer and have experience in creating web systems of varying
                         complexity. Also I support projects I have developed and developed by others. I
-                        work in the web development area more than 5 years, so I will achieve goals of any
+                        work in the web development area more than 7 years, so I will achieve goals of any
                         project by 100%. I like my job and I am eager to improve my skills for creating a
                         high-quality web systems.</p>
                 </div><!--//summary-->
