@@ -46,7 +46,7 @@ p {
   background: #4B6A78;
   position: absolute;
   left: 0;
-  width: 280px;
+  width: 270px;
   height: 100%;
   min-height: 800px;
   color: #fff;
@@ -91,7 +91,7 @@ p {
   font-size: 14px;
 }
 .sidebar-wrapper .container-block {
-  padding: 30px;
+  padding: 20px;
 }
 .sidebar-wrapper .container-block-title {
   text-transform: uppercase;
@@ -147,8 +147,8 @@ p {
 
 .main-wrapper {
   background: #fff;
-  padding: 60px;
-  padding-left: 350px;
+  padding: 40px;
+  padding-left: 310px;
 }
 .main-wrapper .section-title {
   text-transform: uppercase;
@@ -185,7 +185,7 @@ p {
   margin-top: 6px;
 }
 .main-wrapper .section {
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 .main-wrapper .experiences-section .item {
   margin-bottom: 30px;
