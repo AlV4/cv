@@ -1,4 +1,4 @@
-a.pdf {
+a.export {
     background: #ffffff;
     border: solid 1px #e6e6e6;
     border-radius: 2px;
@@ -12,7 +12,7 @@ a.pdf {
     width: 100px;
 }
 
-a.pdf span.pdf {
+a.export span.export {
     background: #f2594b;
     border-radius: 4px;
     color: #ffffff;
@@ -26,12 +26,12 @@ a.pdf span.pdf {
     z-index: 1;
 }
 
-a.pdf span.pdf:last-child {
+a.export span.export:last-child {
     margin-left: -20px;
 }
 
-a.pdf:before,
-a.pdf:after {
+a.export:before,
+a.export:after {
     background: #ffffff;
     border: solid 3px #9fb4cc;
     border-radius: 4px;
@@ -47,34 +47,103 @@ a.pdf:after {
     width: 25px;
 }
 
-a.pdf:hover:before,
-a.pdf:hover:after {
+a.export:hover:before,
+a.export:hover:after {
     background: #e2e8f0;
 }
 /*a:before{transform:translate(-30%,-60%);}*/
 
-a.pdf:before {
+a.export:before {
     margin: -23px 0 0 -5px;
 }
 
-a.pdf:hover {
+a.export:hover {
     background: #e2e8f0;
     border-color: #9fb4cc;
 }
 
-a.pdf:active {
+a.export:active {
     background: #dae0e8;
     box-shadow: inset 0 2px 2px rgba(0, 0, 0, .25);
 }
 
-a.pdf span:first-child {
+a.export span:first-child {
     display: none;
 }
 
-a.pdf:hover span.pdf:first-child {
+a.export:hover span.export:first-child {
     display: inline-block;
 }
 
-a.pdf:hover span.pdf:last-child {
+a.export:hover span.export:last-child {
     display: none;
+}
+
+/* Checkbox */
+
+div.checkbox {
+    display: inline-block;
+    /*padding: 3%;*/
+}
+
+.toggler-wrapper {
+    width: 45px;
+    height: 25px;
+    cursor: pointer;
+    position: relative;
+}
+
+.toggler-wrapper input[type="checkbox"] {
+    display: none;
+}
+
+.toggler-wrapper input[type="checkbox"]:checked+.toggler-slider {
+    background-color: #44cc66;
+}
+
+.toggler-wrapper .toggler-slider {
+    background-color: #ccc;
+    position: absolute;
+    border-radius: 100px;
+    top: 0;
+    /*left: 0;*/
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+.toggler-wrapper .toggler-knob {
+    position: absolute;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+.toggler-wrapper input[type="checkbox"]:checked+.toggler-slider:after {
+    content: 'Photo';
+}
+
+.toggler-wrapper input[type="checkbox"]:checked+.toggler-slider .toggler-knob {
+    left: calc(100% - 19px - 3px);
+}
+
+.toggler-wrapper .toggler-slider:after {
+    content: 'Photo';
+    position: absolute;
+    top: 50%;
+    right: -45px;
+    transform: translateY(-50%);
+    font-size: 75%;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.toggler-wrapper .toggler-knob {
+    width: calc(25px - 6px);
+    height: calc(25px - 6px);
+    border-radius: 50%;
+    left: 3px;
+    top: 3px;
+    background-color: #ffffff;
 }
