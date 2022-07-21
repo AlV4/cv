@@ -1,0 +1,13 @@
+{
+    "name": "4eral/cv",
+    "type": "library",
+    "require": {
+        "symfony/console": "^6.1"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    }
+}
