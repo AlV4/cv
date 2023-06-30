@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CV Chernishenko Aleksandr</title>
+    <title>CV Chernyshenko Oleksandr</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aleksandr Chernishenko's CV">
-    <meta name="author" content="Aleksandr Chernishenko">
+    <meta name="description" content="Oleksandr Chernyshenko's CV">
+    <meta name="author" content="Oleksandr Chernyshenko">
     <link rel="shortcut icon" href="favicon.ico">
     <!-- Google Font -->
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic'
@@ -23,7 +23,7 @@
         function loadPDF() {
             html2pdf().set({
                 margin: 1,
-                filename: "cv_a_chernishenko.pdf",
+                filename: "cv_a_chernyshenko.pdf",
                 image: {type: 'jpeg', quality: 0.95},
                 html2canvas: {scale: 1},
                 pagebreak: {after: '.break'},
@@ -40,7 +40,7 @@
                 type: 'application/msword'
             });
             let url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
-            let filename = 'cv_a_chernishenko.doc';
+            let filename = 'cv_a_chernyshenko.doc';
             var downloadLink = document.createElement("a");
             document.body.appendChild(downloadLink);
             if (navigator.msSaveOrOpenBlob) {
@@ -106,7 +106,7 @@
         <div class="sidebar-wrapper">
             <div id="container" class="profile-container">
                 <img id="photo" class="profile" src="assets/images/alex.png" alt=""/>
-                <h1 class="name">Aleksandr Chernishenko</h1>
+                <h1 class="name">Oleksandr Chernyshenko</h1>
                 <h3 class="tagline">PHP Developer</h3>
             </div>
 
