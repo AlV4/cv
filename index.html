@@ -23,10 +23,10 @@
         function loadPDF() {
             html2pdf().set({
                 margin: 1,
-                filename: "cv_a_chernyshenko.pdf",
+                filename: "cv_o_chernyshenko.pdf",
                 image: {type: 'jpeg', quality: 0.95},
-                html2canvas: {scale: 1},
-                pagebreak: {after: '.break'},
+                html2canvas: {scale: 4},
+                pagebreak: { mode: 'css', before: ['#page1pdf']},
                 jsPDF: {unit: "mm", format: "letter", orientation: "portrait"},
                 zoom: 0.75
             }).from(document.getElementById("pdf")).save();
@@ -40,7 +40,7 @@
                 type: 'application/msword'
             });
             let url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
-            let filename = 'cv_a_chernyshenko.doc';
+            let filename = 'cv_o_chernyshenko.doc';
             var downloadLink = document.createElement("a");
             document.body.appendChild(downloadLink);
             if (navigator.msSaveOrOpenBlob) {
@@ -223,7 +223,7 @@
                     </div><!--//details-->
                 </div><!--//item-->
 
-                <div class="item">
+                <div id="#page1pdf" class="item">
                     <div class="meta">
                         <div class="upper-row">
                             <h3 class="job-title">Backend Developer</h3>
@@ -241,7 +241,7 @@
                     </div><!--//details-->
                 </div><!--//item-->
 
-                <div class="item break">
+                <div class="item">
                     <div class="meta">
                         <div class="upper-row">
                             <h3 class="job-title">Backend Developer</h3>
@@ -319,5 +319,4 @@
 </footer><!--//footer-->
 
 </body>
-</html> 
-
+</html>
