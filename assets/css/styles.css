@@ -173,7 +173,6 @@ input:checked + .toggle-slider:before {
     height: 200px;
     border-radius: 10%;
     margin: 0 auto 15px;
-    /*border: 4px solid rgba(255,255,255,0.2);*/
     object-fit: cover;
     display: none;
 }
