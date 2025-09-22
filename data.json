@@ -1,0 +1,136 @@
+{
+  "personal": {
+    "name": "Oleksandr Chernyshenko",
+    "title": "PHP Developer",
+    "photo": "assets/images/alex.png",
+    "startYear": 2015
+  },
+  "contact": {
+    "email": "ol3ksandr.chernyshenko@gmail.com",
+    "linkedin": "linkedin.com/in/alv4",
+    "linkedinUrl": "https://www.linkedin.com/in/alv4",
+    "github": "github.com/AlV4",
+    "githubUrl": "https://github.com/AlV4",
+    "telegram": "@alex_prg",
+    "telegramUrl": "https://t.me/alex_prg"
+  },
+  "profile": {
+    "summary": "I am a backend-focused web developer with over {experience} years of hands-on experience building and maintaining scalable, high-performance web systems — from simple tools to complex microservice architectures. I take full ownership of my work, supporting both new projects and existing codebases developed by others. I am passionate about clean code, system reliability, and continuous improvement, always aiming to deliver robust, long-term solutions that align with business goals."
+  },
+  "experience": [
+    {
+      "title": "Backend Developer",
+      "company": "Wiz-team, Kyiv, Ukraine (Partly Remote)",
+      "period": "2023 - now",
+      "responsibilities": [
+        "Leading backend development of a core microservice within a complex event support system for international sports events",
+        "Collaborating with cross-functional teams to ensure smooth integration across a distributed microservice ecosystem and occasional legacy monolith components",
+        "Taking part in the development of other microservices across the company, ensuring shared technical standards and code quality"
+      ]
+    },
+    {
+      "title": "Backend Developer",
+      "company": "Tonic Health, Chicago IL, USA (Fully Remote)",
+      "period": "2022 - 2023",
+      "responsibilities": [
+        "Worked on a healthcare system that operated on multiple microservices and employed diverse data storages, caching, and logging systems",
+        "Developed and implemented scalable architecture, enabling efficient communication and seamless integration between various system components",
+        "Collaborated with cross-functional teams to gather requirements, analyze user needs, and deliver solutions that aligned with healthcare industry standards and regulations"
+      ]
+    },
+    {
+      "title": "Backend Developer",
+      "company": "MindGeek, Montreal, Canada (Fully Remote)",
+      "period": "2021 - 2022",
+      "responsibilities": [
+        "Support of high-loaded complicated video streaming system",
+        "Integration partner systems via API",
+        "Creation of auxiliary logic for processing complex business entities"
+      ]
+    },
+    {
+      "title": "Backend Developer",
+      "company": "Evoplay Entertainment, Kyiv, Ukraine (Partly Remote)",
+      "period": "2018 - 2021",
+      "responsibilities": [
+        "Integrated legacy system core with newly created microservices",
+        "Maintenance of complicated loaded game platform, including production deployment",
+        "Developed SPA app for game platform administration (Vue.js, Symfony, Docker)",
+        "Developed Selenium based UI testing framework, available to work with canvas html5 pages (Docker, Selenium WebDriver, PHPUnit, MockServer)"
+      ]
+    },
+    {
+      "title": "Backend Developer",
+      "company": "Fresh Design Agency, Kyiv, Ukraine",
+      "period": "2017 - 2018",
+      "responsibilities": [
+        "Created and maintained different projects, based on Yii2 extended framework platform",
+        "API refactoring",
+        "Developed booking system from scratch"
+      ]
+    },
+    {
+      "title": "Backend Developer",
+      "company": "Monsterleads.pro, Kyiv, Ukraine",
+      "period": "2016 - 2017",
+      "responsibilities": [
+        "Working with different API's such as PayPal, PayU, Telegram, etc.",
+        "Creating company's own API",
+        "Working with payment systems, using OAuth protocol"
+      ]
+    },
+    {
+      "title": "Web Software Developer",
+      "company": "Easy Hotel Management System, Kyiv, Ukraine",
+      "period": "2015 - 2016",
+      "responsibilities": [
+        "Developing software for online Hotel Management System",
+        "Server-side programming using PHP MVC pattern, PostgreSQL DB",
+        "Client side programming using HTML, CSS, JavaScript, jQuery, Ajax, Twig",
+        "Creating automation tests using Selenium Web Driver with Python",
+        "Developing Deterministic Finite Automaton as part of the system"
+      ]
+    }
+  ],
+  "skills": [
+    "PHP: 5.6, 7, 8 versions",
+    "Frameworks: Symfony, Laravel, Yii; Templates: Twig, Smarty",
+    "Databases: MySQL, PostgreSQL, Redis, Mongo",
+    "JavaScript ES6, Frameworks: Vue.js, jQuery",
+    "IDE: PhpStorm; Virtualization: Docker, Vagrant",
+    "Version Control: Gitlab, GitHub, Bitbucket",
+    "Environments: Linux, Windows, MacOS"
+  ],
+  "education": [
+    {
+      "degree": "Organizations Management",
+      "institution": "Nikopol Economic University",
+      "period": "2007 - 2012"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "level": "Professional"
+    },
+    {
+      "language": "Ukrainian",
+      "level": "Native"
+    },
+    {
+      "language": "Russian",
+      "level": "Native"
+    }
+  ],
+  "interests": [
+    "Fitness",
+    "Self-education",
+    "Complex movies"
+  ],
+  "config": {
+    "filename": {
+      "pdf": "Oleksandr_Chernyshenko_CV.pdf",
+      "docx": "Oleksandr_Chernyshenko_CV.doc"
+    }
+  }
+}

@@ -1,322 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CV Chernyshenko Oleksandr</title>
-
-    <!-- Meta -->
+    <title>CV Loading...</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Oleksandr Chernyshenko's CV">
-    <meta name="author" content="Oleksandr Chernyshenko">
-    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="description" content="Resume">
+    <meta name="author" content="">
+
     <!-- Google Font -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic'
-          rel='stylesheet' type='text/css'>
-    <!-- FontAwesome JS-->
-    <script defer src="assets/fontawesome/js/all.min.js"></script>
-    <!-- Html2Pdf JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-            integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        function loadPDF() {
-            html2pdf().set({
-                margin: 1,
-                filename: "cv_o_chernyshenko.pdf",
-                image: {type: 'jpeg', quality: 0.95},
-                html2canvas: {scale: 4},
-                pagebreak: { mode: 'css', before: ['#page1pdf']},
-                jsPDF: {unit: "mm", format: "letter", orientation: "portrait"},
-                zoom: 0.75
-            }).from(document.getElementById("pdf")).save();
-        }
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
-        function export2Word() {
-            let preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
-            let postHtml = "</body></html>";
-            let html = preHtml + document.getElementById("pdf").innerHTML + postHtml;
-            let blob = new Blob(['\ufeff', html], {
-                type: 'application/msword'
-            });
-            let url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
-            let filename = 'cv_o_chernyshenko.doc';
-            var downloadLink = document.createElement("a");
-            document.body.appendChild(downloadLink);
-            if (navigator.msSaveOrOpenBlob) {
-                navigator.msSaveOrOpenBlob(blob, filename);
-            } else {
-                downloadLink.href = url;
-                downloadLink.download = filename;
-                downloadLink.click();
-            }
-            document.body.removeChild(downloadLink);
-        }
-
-        function switchPhoto(checkbox) {
-            let photo = document.photo;
-            let container = document.getElementById("container");
-            if (checkbox.checked) {
-                showPhoto(photo, container);
-            } else if (container.querySelector("#photo") != null) {
-                hidePhoto(photo, container);
-            }
-        }
-
-        function showPhoto(photo, container) {
-            photo.style.visibility = 'visible';
-            container.insertBefore(photo, container.firstChild);
-        }
-
-        function hidePhoto(photo, container) {
-            photo.style.visibility = 'hidden';
-            container.removeChild(photo);
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById("experience").innerHTML = String(new Date().getFullYear() - 2015);
-            document.photo = document.getElementById("photo");
-            hidePhoto(document.photo, document.getElementById("container"));
-        });
-    </script>
-    <!-- Global CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
-    <!-- Theme CSS -->  
-    <link rel="stylesheet" href="assets/css/page.css">
-    <link rel="stylesheet" href="assets/css/button.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
-<div class="mt-lg-0">
+<div class="loading" id="loadingIndicator">
+    <div>Generating document...</div>
+</div>
 
-    <div class="input-group mb-3">
-        <a href="#" onclick="loadPDF()" class="export"><span class="export">Download</span><span class="export">PDF</span></a>
-        <a href="#" onclick="export2Word()" class="export"><span class="export">Download</span><span class="export">WORD</span></a>
-        <div class="d-flex align-items-center justify-content-center">
-            <label class="toggler-wrapper">
-                <input type="checkbox" id="photo_enabled" onclick="switchPhoto(this)">
-                <div class="toggler-slider">
-                    <div class="toggler-knob"></div>
-                </div>
-            </label>
+<div class="export-controls">
+    <button class="export-btn pdf" onclick="exportToPDF()">
+        <i class="fas fa-file-pdf"></i> Download PDF
+    </button>
+    <button class="export-btn word" onclick="exportToWord()">
+        <i class="fas fa-file-word"></i> Download DOCX
+    </button>
+    <div class="photo-toggle">
+        <span>Show Photo</span>
+        <label class="toggle-switch">
+            <input type="checkbox" id="photoToggle" onchange="togglePhoto()">
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+</div>
+
+<div class="wrapper" id="resumeContent">
+    <div class="sidebar-wrapper">
+        <div class="profile-container" id="profileContainer">
+            <!-- Profile content will be loaded dynamically -->
+        </div>
+
+        <div class="contact-container container-block">
+            <h2 class="container-block-title">Contact</h2>
+            <ul class="contact-list" id="contactList">
+                <!-- Contact items will be loaded dynamically -->
+            </ul>
+        </div>
+
+        <div class="education-container container-block">
+            <h2 class="container-block-title">Education</h2>
+            <div id="educationList">
+                <!-- Education items will be loaded dynamically -->
+            </div>
+        </div>
+
+        <div class="languages-container container-block">
+            <h2 class="container-block-title">Languages</h2>
+            <ul class="list-unstyled interests-list" id="languagesList">
+                <!-- Language items will be loaded dynamically -->
+            </ul>
+        </div>
+
+        <div class="interests-container container-block">
+            <h2 class="container-block-title">Interests</h2>
+            <ul class="list-unstyled interests-list" id="interestsList">
+                <!-- Interest items will be loaded dynamically -->
+            </ul>
         </div>
     </div>
 
-    <div class="wrapper mt-lg-5" id="pdf">
-        <div class="sidebar-wrapper">
-            <div id="container" class="profile-container">
-                <img id="photo" class="profile" src="assets/images/alex.png" alt="" style="visibility: hidden;"/>
-                <h1 class="name">Oleksandr Chernyshenko</h1>
-                <h3 class="tagline">PHP Developer</h3>
+    <div class="main-wrapper">
+        <section class="section summary-section">
+            <h2 class="section-title">
+                <span class="icon-holder"><i class="fa-solid fa-user"></i></span>
+                Profile
+            </h2>
+            <div class="summary">
+                <p id="profileSummary">
+                    <!-- Profile summary will be loaded dynamically -->
+                </p>
             </div>
+        </section>
 
-            <div class="contact-container container-block">
-                <ul class="list-unstyled contact-list">
-                    <li class="email"><i class="fa-solid fa-envelope"></i><a href="mailto: ol3ksandr.chernyshenko@gmail.com">ol3ksandr.chernyshenko@gmail.com</a>
-                    </li>
-                    <li class="linkedin"><i class="fa-brands fa-linkedin-in"></i><a
-                            href="https://www.linkedin.com/in/alv4" target="_blank">linkedin.com/in/alv4</a></li>
-                    <li class="github"><i class="fa-brands fa-github"></i><a href="https://github.com/AlV4"
-                                                                             target="_blank">github.com/AlV4</a></li>
-                    <li class="telegram"><i class="fa-brands fa-telegram"></i><a href="https://t.me/alex_prg"
-                                                                                 target="_blank">@alex_prg</a></li>
-                </ul>
-            </div><!--//contact-container-->
-            <div class="education-container container-block">
-                <h2 class="container-block-title">Education</h2>
-                <div class="item">
-                    <h4 class="degree">Organizations Management</h4>
-                    <h5 class="meta">Nikopol Economic University</h5>
-                    <div class="time">2007 - 2012</div>
-                </div><!--//item-->
-            </div><!--//education-container-->
+        <section class="section experiences-section">
+            <h2 class="section-title">
+                <span class="icon-holder"><i class="fa-solid fa-briefcase"></i></span>
+                Experience
+            </h2>
+            <div id="experienceList">
+                <!-- Experience items will be loaded dynamically -->
+            </div>
+        </section>
 
-            <div class="languages-container container-block">
-                <h2 class="container-block-title">Languages</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>English <span class="lang-desc">(Professional)</span></li>
-                    <li>Ukrainian <span class="lang-desc">(Native)</span></li>
-                    <li>Russian <span class="lang-desc">(Native)</span></li>
-                </ul>
-            </div><!--//interests-->
-
-            <div class="interests-container container-block">
-                <h2 class="container-block-title">Interests</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>Fitness</li>
-                    <li>Self-education</li>
-                    <li>Complex movies</li>
-                </ul>
-            </div><!--//interests-->
-
-        </div><!--//sidebar-wrapper-->
-
-        <div class="main-wrapper">
-            <section class="section summary-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-user"></i></span>Profile</h2>
-                <div class="summary">
-                    <p>I am a web programmer and have experience in creating web systems of varying
-                        complexity. Also, I support projects I have developed and developed by others. I
-                        work in the web development area more than <span id="experience">7</span> years, so I will
-                        achieve goals of any
-                        project by 100%. I like my job, and I am eager to improve my skills for creating a
-                        high-quality web systems.</p>
-                </div><!--//summary-->
-            </section><!--//section-->
-
-            <section class="section experiences-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-briefcase"></i></span>Experiences
-                </h2>
-
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Backend Developer</h3>
-                            <div class="time">2022 - Present</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Tonic Health, Chicago IL, USA (Fully Remote)</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <ul>
-                            <li>Worked on a healthcare system that operated on multiple microservices and employed diverse data storages, caching, and logging systems</li>
-                            <li>Developed and implemented scalable architecture, enabling efficient communication and seamless integration between various system components</li>
-                            <li>Conducted thorough testing, debugging, and performance optimization to ensure high-quality code and optimal system performance</li>
-                            <li>Collaborated with cross-functional teams to gather requirements, analyze user needs, and deliver solutions that aligned with healthcare industry standards and regulations</li>
-                        </ul>
-                    </div><!--//details-->
-                </div><!--//item-->
-
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Backend Developer</h3>
-                            <div class="time">2021 - 2022</div>
-                        </div><!--//upper-row-->
-                        <div class="company">MindGeek, Montreal, Canada (Fully Remote)</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <ul>
-                            <li>Support of high-loaded complicated video streaming system</li>
-                            <li>Integration partner systems via API</li>
-                            <li>Creation of auxiliary logic for processing complex business entities</li>
-                        </ul>
-                    </div><!--//details-->
-                </div><!--//item-->
-
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Backend Developer</h3>
-                            <div class="time">2018 - 2021</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Evoplay Entertainment, Kyiv, Ukraine (Partly Remote)</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <ul>
-                            <li>Integrated legacy system core with newly created microservices</li>
-                            <li>Maintenance of complicated loaded game platform, including production deployment</li>
-                            <li>Developed SPA app for game platform administration (Vue.js, Symfony, Docker)</li>
-                            <li>Developed Selenium based UI testing framework, available to work with canvas html5 pages
-                                (Docker, Selenium WebDriver, PHPUnit, MockServer)
-                            </li>
-                        </ul>
-                    </div><!--//details-->
-                </div><!--//item-->
-
-                <div id="#page1pdf" class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Backend Developer</h3>
-                            <div class="time">2017 - 2018</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Fresh Design Agency, Kyiv, Ukraine</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <ul>
-                            <li>Created and maintained different projects, based on Yii2 extended framework platform
-                            </li>
-                            <li>API refactoring</li>
-                            <li>Developed booking system from scratch</li>
-                        </ul>
-                    </div><!--//details-->
-                </div><!--//item-->
-
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Backend Developer</h3>
-                            <div class="time">2016 - 2017</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Monsterleads.pro, Kyiv, Ukraine</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <ul>
-                            <li>Working with different API's such as PayPal, PayU, Telegram, etc.</li>
-                            <li>Creating company's own API</li>
-                            <li>Working with payment systems, using OAuth protocol</li>
-                        </ul>
-                    </div><!--//details-->
-                </div><!--//item-->
-
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Web Software Developer</h3>
-                            <div class="time">2015 - 2016</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Easy Hotel Management System, Kyiv, Ukraine</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <ul>
-                            <li>Developing software for online Hotel Management System</li>
-                            <li>Server-side programming using PHP MVC pattern, PostgreSQL DB</li>
-                            <li>Client side programming using HTML, CSS, JavaScript, jQuery, Ajax, Twig</li>
-                            <li>Creating automation tests using Selenium Web Driver with Python</li>
-                            <li>Developing Deterministic Finite Automaton as part of the system</li>
-                        </ul>
-                    </div><!--//details-->
-                </div><!--//item-->
-
-            </section><!--//section-->
-
-            <section class="skills-section section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-rocket"></i></span>Skills</h2>
-                <div class="skillset">
-                    <div>
-                        <h6>PHP: 5.6, 7, 8 versions</h6>
-                    </div>
-                    <div>
-                        <h6>Frameworks: Symfony, Laravel, Yii; Templates: Twig, Smarty</h6>
-                    </div>
-                    <div>
-                        <h6>Databases: MySQL, PostgreSQL, Redis, Mongo</h6>
-                    </div>
-                    <div>
-                        <h6>JavaScript ES6, Frameworks: Vue.js, jQuery</h6>
-                    </div>
-                    <div>
-                        <h6>IDE: PhpStorm; Virtualization: Docker, Vagrant</h6>
-                    </div>
-                    <div>
-                        <h6>VersionControl: Gitlab, GitHub, Bitbucket</h6>
-                    </div>
-                    <div>
-                        <h6>Environments: Linux(Ubuntu), Windows, MacOS</h6>
-                    </div>
-                </div>
-            </section><!--//skills-section-->
-
-        </div><!--//main-body-->
+        <section class="skills-section section">
+            <h2 class="section-title">
+                <span class="icon-holder"><i class="fa-solid fa-rocket"></i></span>
+                Skills
+            </h2>
+            <div class="skillset" id="skillsList">
+                <!-- Skills will be loaded dynamically -->
+            </div>
+        </section>
     </div>
 </div>
 
 <footer class="footer">
     <div class="text-center">
-        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-        <small class="copyright">Designed with <i class="fa-solid fa-heart"></i> by <a
-                href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
-    </div><!--//container-->
-</footer><!--//footer-->
+        <small class="copyright">
+            Designed with <i class="fa-solid fa-heart" style="color: #fb866a;"></i>
+            by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers
+        </small>
+    </div>
+</footer>
 
+<!-- External Scripts -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+<!-- Data Loading and Rendering -->
+<script>
+    let resumeData = null;
+
+    // Load JSON data and render the résumé
+    async function loadResumeData() {
+        try {
+            const response = await fetch('data.json');
+            resumeData = await response.json();
+            renderResume(resumeData);
+
+            // Set data for export functions
+            if (typeof setResumeData === 'function') {
+                setResumeData(resumeData);
+            }
+        } catch (error) {
+            console.error('Error loading resume data:', error);
+            // Fallback: show an error message
+            document.body.innerHTML = '<div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;"><h2>Error loading resume data</h2><p>Please make sure data.json file is available.</p></div>';
+        }
+    }
+
+    // Render the complete résumé from JSON data
+    function renderResume(data) {
+        // Update page title and meta
+        document.title = `CV ${data.personal.name}`;
+        document.querySelector('meta[name="description"]').setAttribute('content', `${data.personal.name}'s Resume`);
+        document.querySelector('meta[name="author"]').setAttribute('content', data.personal.name);
+
+        // Calculate experience years
+        const experienceYears = new Date().getFullYear() - data.personal.startYear;
+
+        // Render profile section
+        renderProfile(data);
+
+        // Render contact section
+        renderContact(data);
+
+        // Render education section
+        renderEducation(data);
+
+        // Render languages section
+        renderLanguages(data);
+
+        // Render interests section
+        renderInterests(data);
+
+        // Render profile summary
+        renderProfileSummary(data, experienceYears);
+
+        // Render experience section
+        renderExperience(data);
+
+        // Render skills section
+        renderSkills(data);
+    }
+
+    // Render profile container
+    function renderProfile(data) {
+        const profileContainer = document.getElementById('profileContainer');
+        profileContainer.innerHTML = `
+                <img id="profilePhoto" class="profile-photo" src="${data.personal.photo}" alt="${data.personal.name} Profile Photo">
+                <h1 class="name">${data.personal.name}</h1>
+                <h3 class="tagline">${data.personal.title}</h3>
+            `;
+    }
+
+    // Render contact section
+    function renderContact(data) {
+        const contactList = document.getElementById('contactList');
+        contactList.innerHTML = `
+                <li>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:${data.contact.email}">${data.contact.email}</a>
+                </li>
+                <li>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    <a href="${data.contact.linkedinUrl}" target="_blank">${data.contact.linkedin}</a>
+                </li>
+                <li>
+                    <i class="fa-brands fa-github"></i>
+                    <a href="${data.contact.githubUrl}" target="_blank">${data.contact.github}</a>
+                </li>
+                <li>
+                    <i class="fa-brands fa-telegram"></i>
+                    <a href="${data.contact.telegramUrl}" target="_blank">${data.contact.telegram}</a>
+                </li>
+            `;
+    }
+
+    // Render education section
+    function renderEducation(data) {
+        const educationList = document.getElementById('educationList');
+        educationList.innerHTML = data.education.map(edu => `
+                <div class="item">
+                    <h4 class="degree">${edu.degree}</h4>
+                    <h5 class="meta">${edu.institution}</h5>
+                    <div class="time">${edu.period}</div>
+                </div>
+            `).join('');
+    }
+
+    // Render languages section
+    function renderLanguages(data) {
+        const languagesList = document.getElementById('languagesList');
+        languagesList.innerHTML = data.languages.map(lang => `
+                <li>${lang.language} <span class="lang-desc">(${lang.level})</span></li>
+            `).join('');
+    }
+
+    // Render interests section
+    function renderInterests(data) {
+        const interestsList = document.getElementById('interestsList');
+        interestsList.innerHTML = data.interests.map(interest => `
+                <li>${interest}</li>
+            `).join('');
+    }
+
+    // Render profile summary
+    function renderProfileSummary(data, experienceYears) {
+        const profileSummary = document.getElementById('profileSummary');
+        profileSummary.innerHTML = data.profile.summary.replace('{experience}', experienceYears);
+    }
+
+    // Render experience section
+    function renderExperience(data) {
+        const experienceList = document.getElementById('experienceList');
+        experienceList.innerHTML = data.experience.map(exp => `
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">${exp.title}</h3>
+                            <div class="time">${exp.period}</div>
+                        </div>
+                        <div class="company">${exp.company}</div>
+                    </div>
+                    <div class="details">
+                        <ul>
+                            ${exp.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `).join('');
+    }
+
+    // Render skills section
+    function renderSkills(data) {
+        const skillsList = document.getElementById('skillsList');
+        skillsList.innerHTML = data.skills.map(skill => `
+                <div><h6>${skill}</h6></div>
+            `).join('');
+    }
+
+    // Initialize the application
+    document.addEventListener('DOMContentLoaded', function() {
+        loadResumeData();
+    });
+</script>
+
+<!-- Custom Scripts -->
+<script src="js/script.js"></script>
 </body>
 </html>
