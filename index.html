@@ -56,18 +56,18 @@
             </ul>
         </div>
 
-        <div class="education-container container-block">
-            <h2 class="container-block-title">Education</h2>
-            <div id="educationList">
-                <!-- Education items will be loaded dynamically -->
-            </div>
-        </div>
-
         <div class="languages-container container-block">
             <h2 class="container-block-title">Languages</h2>
             <ul class="list-unstyled interests-list" id="languagesList">
                 <!-- Language items will be loaded dynamically -->
             </ul>
+        </div>
+
+        <div class="education-container container-block">
+            <h2 class="container-block-title">Education</h2>
+            <div id="educationList">
+                <!-- Education items will be loaded dynamically -->
+            </div>
         </div>
 
         <div class="interests-container container-block">
@@ -213,6 +213,10 @@
                 <li>
                     <i class="fa-brands fa-telegram"></i>
                     <a href="${data.contact.telegramUrl}" target="_blank">${data.contact.telegram}</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>${data.contact.location}</span>
                 </li>
             `;
     }
