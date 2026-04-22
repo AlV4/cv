@@ -1,82 +1,96 @@
 {
   "personal": {
     "name": "Oleksandr Chernyshenko",
-    "title": "PHP Software Engineer",
+    "title": "Senior Backend Engineer",
     "photo": "assets/images/alex.png",
     "startYear": 2017
   },
   "contact": {
     "email": "ol3ksandr.chernyshenko@gmail.com",
-    "linkedin": "linkedin.com/in/alv4",
-    "linkedinUrl": "https://www.linkedin.com/in/alv4",
+    "location": "Valencia, Spain",
+    "linkedin": "linkedin.com/in/oleksandr-chernyshenko/",
+    "linkedinUrl": "https://www.linkedin.com/in/oleksandr-chernyshenko/",
     "github": "github.com/AlV4",
     "githubUrl": "https://github.com/AlV4",
     "telegram": "@alex_prg",
     "telegramUrl": "https://t.me/alex_prg"
   },
   "profile": {
-    "summary": "I am a backend-focused web developer with over {experience} years of hands-on experience building and maintaining scalable, high-performance web systems — from simple tools to complex microservice architectures. I take full ownership of my work, supporting both new projects and existing codebases developed by others. I am passionate about clean code, system reliability, and continuous improvement, always aiming to deliver robust, long-term solutions that align with business goals."
+    "summary": "Senior Backend Engineer with 9+ years of experience building distributed systems across iGaming, healthcare, high-traffic media, and enterprise sports events. I specialize in designing and maintaining microservices using Domain-Driven Design, CQRS, and event-driven patterns. My core stack is PHP (Symfony), and I am comfortable working across other backend languages when the problem requires it. I care about clean architecture, thoughtful decisions, and code the team can still maintain two years from now. Based in Valencia, Spain — open to senior backend roles, remote or hybrid, across Europe and the US."
   },
   "experience": [
     {
-      "title": "Backend Developer",
-      "company": "Wiz-team, Kyiv, Ukraine (Remote)",
+      "title": "Senior Backend Engineer",
+      "company": "Wiz-Team, Valencia, Spain (Remote)",
       "period": "2023 - now",
       "responsibilities": [
-        "Leading backend development of a core microservice within a complex event support system for international sports events (e.g., Milano Cortina 2026, Paris 2024, etc.)",
-        "Collaborating with cross-functional teams to ensure smooth integration across a distributed microservice ecosystem and occasional legacy monolith components",
-        "Taking part in the development of other microservices across the company, ensuring shared technical standards and code quality"
+        "Leading backend development of a core microservice in a distributed event-support platform used at major international sports events (Paris 2024, Milano Cortina 2026)",
+        "Designing and building microservice features using DDD and CQRS, aligning with shared architecture standards across the product",
+        "Contributing to several microservices across the company, reviewing code and driving consistency in quality and patterns",
+        "Integrating new services with legacy monolith components, keeping the system stable during incremental migration",
+        "Collaborating closely with product, QA, and other backend teams in a distributed, remote-first setup",
+        "Stack: PHP 8, Symfony, PostgreSQL, RabbitMQ, Redis, Docker, Kubernetes, Git, CI/CD"
       ]
     },
     {
-      "title": "Backend Developer",
+      "title": "Backend Engineer",
       "company": "Tonic Health, Chicago IL, USA (Remote)",
       "period": "2022 - 2023",
       "responsibilities": [
-        "Worked on a healthcare system that operated on multiple microservices and employed diverse data storages, caching, and logging systems",
-        "Developed and implemented scalable architecture, enabling efficient communication and seamless integration between various system components",
-        "Collaborated with cross-functional teams to gather requirements, analyze user needs, and deliver solutions that aligned with healthcare industry standards and regulations"
+        "Backend engineer on a healthcare SaaS platform built on microservices, handling patient-facing workflows under US healthcare compliance constraints",
+        "Built new features and refactored existing services across a multi-storage environment (relational DBs, caching, structured logging)",
+        "Designed clean integration points between services to reduce coupling and improve deployability",
+        "Performed systematic debugging and performance work on critical paths, improving response times on high-traffic endpoints",
+        "Collaborated with product and QA to translate healthcare requirements into maintainable code",
+        "Stack: PHP, Symfony, microservices, PostgreSQL, Redis, Docker, Git"
       ]
     },
     {
-      "title": "Backend Developer",
+      "title": "Backend Engineer",
       "company": "MindGeek, Montreal, Canada (Remote)",
       "period": "2021 - 2022",
       "responsibilities": [
-        "Support of high-loaded complicated video streaming system",
-        "Integration partner systems via API",
-        "Creation of auxiliary logic for processing complex business entities"
+        "Backend engineer on a high-load video streaming platform serving millions of daily users",
+        "Maintained and extended the core streaming service, focusing on stability under heavy traffic",
+        "Integrated third-party partner systems via internal and external APIs",
+        "Built supporting business logic for complex content and entity processing pipelines",
+        "Stack: PHP, microservices, MySQL, Redis, Git"
       ]
     },
     {
-      "title": "Backend Developer",
+      "title": "Backend Engineer",
       "company": "Evoplay Entertainment, Kyiv, Ukraine",
       "period": "2018 - 2021",
       "responsibilities": [
-        "Integrated legacy system core with newly created microservices",
-        "Maintenance of complicated loaded game platform, including production deployment",
-        "Developed SPA app for game platform administration (Vue.js, Symfony, Docker)",
-        "Developed Selenium based UI testing framework, available to work with canvas html5 pages (Docker, Selenium WebDriver, PHPUnit, MockServer)"
+        "Backend engineer on a high-load iGaming platform, covering both core game services and internal tooling",
+        "Migrated parts of a legacy monolithic core into new microservices, keeping the live platform stable during rollout",
+        "Maintained and deployed the game platform to production, including on-call support for live traffic",
+        "Built an SPA for platform administration (Vue.js + Symfony, Dockerized)",
+        "Designed and implemented a Selenium-based UI testing framework capable of testing HTML5 canvas games (Docker, Selenium WebDriver, PHPUnit, MockServer)",
+        "Stack: PHP, Symfony, Vue.js, MySQL, Redis, Docker, Selenium, Git"
       ]
     },
     {
-      "title": "Backend Developer",
+      "title": "Backend Engineer",
       "company": "Fresh Design Agency, Kyiv, Ukraine",
       "period": "2017 - 2018",
       "responsibilities": [
-        "Created and maintained different projects, based on Yii2 extended framework platform",
-        "API refactoring",
-        "Developed booking system from scratch"
+        "Backend developer delivering client projects on a Yii2-based platform",
+        "Built a booking system from scratch, including domain logic, API, and admin flows",
+        "Refactored existing APIs to improve consistency and maintainability",
+        "Maintained several client projects in parallel",
+        "Stack: PHP, Yii2, MySQL, Git"
       ]
     },
     {
-      "title": "Backend Developer",
+      "title": "Backend Engineer",
       "company": "Monsterleads.pro, Kyiv, Ukraine",
       "period": "2016 - 2017",
       "responsibilities": [
-        "Working with different API's such as PayPal, PayU, Telegram, etc.",
-        "Creating company's own API",
-        "Working with payment systems, using OAuth protocol"
+        "Integrated third-party APIs including PayPal, PayU, and Telegram",
+        "Designed and built the company's own public API",
+        "Worked with payment systems using the OAuth protocol",
+        "Stack: PHP, MySQL, Git"
       ]
     },
     {
@@ -84,26 +98,27 @@
       "company": "Easy Hotel Management System, Kyiv, Ukraine",
       "period": "2015 - 2016",
       "responsibilities": [
-        "Developing software for online Hotel Management System",
-        "Server-side programming using PHP MVC pattern, PostgreSQL DB",
-        "Client side programming using HTML, CSS, JavaScript, jQuery, Ajax, Twig",
-        "Creating automation tests using Selenium Web Driver with Python",
-        "Developing Deterministic Finite Automaton as part of the system"
+        "Developed software for an online hotel management system",
+        "Server-side programming in PHP using the MVC pattern with PostgreSQL",
+        "Client-side programming with HTML, CSS, JavaScript, jQuery, AJAX, and Twig",
+        "Built automated UI tests using Selenium WebDriver with Python",
+        "Implemented a Deterministic Finite Automaton as part of the system",
+        "Stack: PHP, PostgreSQL, JavaScript, jQuery, Selenium, Python"
       ]
     }
   ],
   "skills": [
-    "PHP: 5.6, 7, 8 versions",
-    "Frameworks: Laravel, Symfony, Yii; Templates: Twig, Smarty",
-    "Databases: MySQL, PostgreSQL, Redis, Mongo",
-    "JavaScript ES6, Frameworks: Vue.js, jQuery",
-    "IDE: PhpStorm; Virtualization: Kubernetess, Docker, Vagrant",
-    "Version Control: Gitlab, GitHub, Bitbucket",
-    "Environments: Linux, Windows, MacOS"
+    "Architecture: Microservices, Domain-Driven Design (DDD), CQRS, Event-Driven Architecture, REST API, SOLID, Clean Architecture",
+    "Languages: PHP 7/8, JavaScript (ES6), Python (basic)",
+    "Frameworks: Symfony, Laravel, Yii; Vue.js, jQuery",
+    "Databases & Messaging: PostgreSQL, MySQL, Redis, MongoDB, RabbitMQ",
+    "Infrastructure: Docker, Kubernetes, Linux, CI/CD",
+    "Testing: PHPUnit, Selenium, MockServer",
+    "Tools: Git, GitHub, GitLab, Bitbucket, PhpStorm"
   ],
   "education": [
     {
-      "degree": "Organizations Management",
+      "degree": "Bachelor's in Organizations Management",
       "institution": "Nikopol Economic University",
       "period": "2007 - 2012"
     }
@@ -111,7 +126,11 @@
   "languages": [
     {
       "language": "English",
-      "level": "Professional"
+      "level": "B2"
+    },
+    {
+      "language": "Spanish",
+      "level": "A1"
     },
     {
       "language": "Ukrainian",
@@ -129,8 +148,8 @@
   ],
   "config": {
     "filename": {
-      "pdf": "Oleksandr_Chernyshenko_PHP_CV.pdf",
-      "docx": "Oleksandr_Chernyshenko_PHP_CV.doc"
+      "pdf": "Oleksandr_Chernyshenko_Backend_CV.pdf",
+      "docx": "Oleksandr_Chernyshenko_Backend_CV.doc"
     }
   }
 }
