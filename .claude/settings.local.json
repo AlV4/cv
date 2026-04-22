@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p C:/workspace/cv/assets/images/icons)",
+      "Bash(curl -sSL -o profile.png \"https://raw.githubusercontent.com/google/material-design-icons/master/png/social/person/materialicons/48dp/2x/baseline_person_white_48dp.png\")",
+      "Bash(curl -sSL -o experience.png \"https://raw.githubusercontent.com/google/material-design-icons/master/png/action/work/materialicons/48dp/2x/baseline_work_white_48dp.png\")",
+      "Bash(curl -sSL -o skills.png \"https://raw.githubusercontent.com/google/material-design-icons/master/png/action/rocket_launch/materialicons/48dp/2x/baseline_rocket_launch_white_48dp.png\")",
+      "Bash(curl -sI \"https://raw.githubusercontent.com/google/material-design-icons/master/png/social/person/materialicons/48dp/2x/baseline_person_white_48dp.png\")",
+      "Bash(curl -sI \"https://raw.githubusercontent.com/google/material-design-icons/master/png/social/person/materialicons/48dp/1x/baseline_person_white_48dp.png\")",
+      "Bash(curl -sI \"https://raw.githubusercontent.com/google/material-design-icons/master/png/social/person_outline/materialicons/48dp/2x/baseline_person_outline_white_48dp.png\")",
+      "Bash(curl -sI \"https://api.github.com/repos/google/material-design-icons/contents/png/social/person\")",
+      "Bash(curl -s \"https://api.github.com/repos/google/material-design-icons/contents/png/social/person\")",
+      "Bash(curl -s \"https://api.github.com/repos/google/material-design-icons/contents/png/social/person/materialicons\")",
+      "Bash(curl -s \"https://api.github.com/repos/google/material-design-icons/contents/png/social/person/materialicons/48dp\")",
+      "Bash(curl -s \"https://api.github.com/repos/google/material-design-icons/contents/png/social/person/materialicons/48dp/2x\")",
+      "Bash(rm -f *.png)",
+      "Bash(curl -sSL -o profile.png \"https://raw.githubusercontent.com/google/material-design-icons/master/png/social/person/materialicons/48dp/2x/baseline_person_black_48dp.png\")",
+      "Bash(curl -sSL -o experience.png \"https://raw.githubusercontent.com/google/material-design-icons/master/png/action/work/materialicons/48dp/2x/baseline_work_black_48dp.png\")",
+      "Bash(curl -sSL -o skills.png \"https://raw.githubusercontent.com/google/material-design-icons/master/png/action/rocket_launch/materialicons/48dp/2x/baseline_rocket_launch_black_48dp.png\")",
+      "Bash(file *.png)"
+    ]
+  }
+}
