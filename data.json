@@ -8,15 +8,15 @@
   "contact": {
     "email": "ol3ksandr.chernyshenko@gmail.com",
     "location": "Valencia, Spain",
-    "linkedin": "linkedin.com/in/oleksandr-chernyshenko/",
-    "linkedinUrl": "https://www.linkedin.com/in/oleksandr-chernyshenko/",
+    "linkedin": "linkedin.com/in/oleksandr-chernyshenko",
+    "linkedinUrl": "https://www.linkedin.com/in/oleksandr-chernyshenko",
     "github": "github.com/AlV4",
     "githubUrl": "https://github.com/AlV4",
     "telegram": "@alex_prg",
     "telegramUrl": "https://t.me/alex_prg"
   },
   "profile": {
-    "summary": "Senior Backend Engineer with 9+ years of experience building distributed systems across iGaming, healthcare, high-traffic media, and enterprise sports events. I specialize in designing and maintaining microservices using Domain-Driven Design, CQRS, and event-driven patterns. My core stack is PHP (Symfony), and I am comfortable working across other backend languages when the problem requires it. I care about clean architecture, thoughtful decisions, and code the team can still maintain two years from now. Based in Valencia, Spain — open to senior backend roles, remote or hybrid, across Europe and the US."
+    "summary": "Senior Backend Engineer with 9+ years of experience building distributed systems across iGaming, healthcare, high-traffic media, and enterprise sports events. I specialize in designing and maintaining microservices using Domain-Driven Design, CQRS, and event-driven patterns. My core stack is PHP (Laravel/Symfony), and I am comfortable working across other backend languages when the problem requires it. I care about clean architecture, thoughtful decisions, and code the team can still maintain two years from now. Based in Valencia, Spain — open to senior backend roles, remote or hybrid, across Europe and the US."
   },
   "experience": [
     {
@@ -29,7 +29,7 @@
         "Contributing to several microservices across the company, reviewing code and driving consistency in quality and patterns",
         "Integrating new services with legacy monolith components, keeping the system stable during incremental migration",
         "Collaborating closely with product, QA, and other backend teams in a distributed, remote-first setup",
-        "Stack: PHP 8, Symfony, PostgreSQL, RabbitMQ, Redis, Docker, Kubernetes, Git, CI/CD"
+        "Stack: PHP 8, Laravel/Lumen, PostgreSQL, RabbitMQ, Redis, Docker, Kubernetes, Git, CI/CD"
       ]
     },
     {
@@ -108,8 +108,8 @@
     }
   ],
   "skills": [
-    "Architecture: Microservices, Domain-Driven Design (DDD), CQRS, Event-Driven Architecture, REST API, SOLID, Clean Architecture",
-    "Languages: PHP 7/8, JavaScript (ES6), Python (basic)",
+    "Architecture: Microservices, REST API, SOLID, Domain-Driven Design (DDD), CQRS, Event-Driven Architecture, Clean Architecture",
+    "Languages: PHP 7/8, JavaScript, Golang, Java, Python (basic)",
     "Frameworks: Symfony, Laravel, Yii; Vue.js, jQuery",
     "Databases & Messaging: PostgreSQL, MySQL, Redis, MongoDB, RabbitMQ",
     "Infrastructure: Docker, Kubernetes, Linux, CI/CD",
