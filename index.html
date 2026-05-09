@@ -1,12 +1,19 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>CV Oleksandr Chernyshenko</title>
+    {% assign resume = site.data.resume %}
+    {% assign current_year = "now" | date: "%Y" | plus: 0 %}
+    {% assign start_year = resume.personal.startYear | plus: 0 %}
+    {% assign experience_years = current_year | minus: start_year %}
+
+    <title>CV {{ resume.personal.name }}</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Resume">
-    <meta name="author" content="">
+    <meta name="description" content="{{ resume.personal.name }}'s Resume">
+    <meta name="author" content="{{ resume.personal.name }}">
 
     <!-- Favicon (alternative path if root doesn't work) -->
     <link rel="shortcut icon" href="./favicon.ico?v=1">
@@ -46,34 +53,65 @@
 <div class="wrapper" id="resumeContent">
     <div class="sidebar-wrapper">
         <div class="profile-container" id="profileContainer">
-            <!-- Profile content will be loaded dynamically -->
+            <img id="profilePhoto" class="profile-photo" src="{{ resume.personal.photo }}" alt="{{ resume.personal.name }} Profile Photo">
+            <h1 class="name">{{ resume.personal.name }}</h1>
+            <h3 class="tagline">{{ resume.personal.title }}</h3>
         </div>
 
         <div class="contact-container container-block">
             <h2 class="container-block-title">Contact</h2>
             <ul class="contact-list" id="contactList">
-                <!-- Contact items will be loaded dynamically -->
+                <li>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:{{ resume.contact.email }}">{{ resume.contact.email }}</a>
+                </li>
+                <li>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    <a href="{{ resume.contact.linkedinUrl }}" target="_blank">{{ resume.contact.linkedin }}</a>
+                </li>
+                <li>
+                    <i class="fa-brands fa-github"></i>
+                    <a href="{{ resume.contact.githubUrl }}" target="_blank">{{ resume.contact.github }}</a>
+                </li>
+                <li>
+                    <i class="fa-brands fa-telegram"></i>
+                    <a href="{{ resume.contact.telegramUrl }}" target="_blank">{{ resume.contact.telegram }}</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>{{ resume.contact.location }}</span>
+                </li>
             </ul>
         </div>
 
         <div class="languages-container container-block">
             <h2 class="container-block-title">Languages</h2>
             <ul class="list-unstyled interests-list" id="languagesList">
-                <!-- Language items will be loaded dynamically -->
+                {% for lang in resume.languages %}
+                <li>{{ lang.language }} <span class="lang-desc">({{ lang.level }})</span></li>
+                {% endfor %}
             </ul>
         </div>
 
         <div class="education-container container-block">
             <h2 class="container-block-title">Education</h2>
             <div id="educationList">
-                <!-- Education items will be loaded dynamically -->
+                {% for edu in resume.education %}
+                <div class="item">
+                    <h4 class="degree">{{ edu.degree }}</h4>
+                    <h5 class="meta">{{ edu.institution }}</h5>
+                    <div class="time">{{ edu.period }}</div>
+                </div>
+                {% endfor %}
             </div>
         </div>
 
         <div class="interests-container container-block">
             <h2 class="container-block-title">Interests</h2>
             <ul class="list-unstyled interests-list" id="interestsList">
-                <!-- Interest items will be loaded dynamically -->
+                {% for interest in resume.interests %}
+                <li>{{ interest }}</li>
+                {% endfor %}
             </ul>
         </div>
     </div>
@@ -85,9 +123,12 @@
                 Profile
             </h2>
             <div class="summary">
-                <p id="profileSummary">
-                    <!-- Profile summary will be loaded dynamically -->
-                </p>
+                <div id="profileSummary">
+                    {% assign experience_placeholder = "{experience}" %}
+                    {% for paragraph in resume.personal.summary %}
+                        <p>{{ paragraph | replace: experience_placeholder, experience_years }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </section>
 
@@ -97,7 +138,9 @@
                 Skills
             </h2>
             <div class="skillset" id="skillsList">
-                <!-- Skills will be loaded dynamically -->
+                {% for skill in resume.skills %}
+                <div><h6>{{ skill }}</h6></div>
+                {% endfor %}
             </div>
         </section>
 
@@ -107,7 +150,24 @@
                 Experience
             </h2>
             <div id="experienceList">
-                <!-- Experience items will be loaded dynamically -->
+                {% for exp in resume.experience %}
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">{{ exp.title }}</h3>
+                            <div class="time">{{ exp.period }}</div>
+                        </div>
+                        <div class="company">{{ exp.company }}</div>
+                    </div>
+                    <div class="details">
+                        <ul>
+                            {% for resp in exp.responsibilities %}
+                            <li>{{ resp }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </section>
     </div>
@@ -127,166 +187,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
-<!-- Data Loading and Rendering -->
+<!-- Data Initialization for Exports -->
 <script>
-    let resumeData = null;
-
-    // Load JSON data and render the résumé
-    async function loadResumeData() {
-        try {
-            const response = await fetch('data.json');
-            resumeData = await response.json();
-            renderResume(resumeData);
-
-            // Set data for export functions
-            if (typeof setResumeData === 'function') {
-                setResumeData(resumeData);
-            }
-        } catch (error) {
-            console.error('Error loading resume data:', error);
-            // Fallback: show an error message
-            document.body.innerHTML = '<div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;"><h2>Error loading resume data</h2><p>Please make sure data.json file is available.</p></div>';
-        }
-    }
-
-    // Render the complete résumé from JSON data
-    function renderResume(data) {
-        // Update page title and meta
-        document.title = `CV ${data.personal.name}`;
-        document.querySelector('meta[name="description"]').setAttribute('content', `${data.personal.name}'s Resume`);
-        document.querySelector('meta[name="author"]').setAttribute('content', data.personal.name);
-
-        // Calculate experience years
-        const experienceYears = new Date().getFullYear() - data.personal.startYear;
-
-        // Render profile section
-        renderProfile(data);
-
-        // Render contact section
-        renderContact(data);
-
-        // Render education section
-        renderEducation(data);
-
-        // Render languages section
-        renderLanguages(data);
-
-        // Render interests section
-        renderInterests(data);
-
-        // Render profile summary
-        renderProfileSummary(data, experienceYears);
-
-        // Render experience section
-        renderExperience(data);
-
-        // Render skills section
-        renderSkills(data);
-    }
-
-    // Render profile container
-    function renderProfile(data) {
-        const profileContainer = document.getElementById('profileContainer');
-        profileContainer.innerHTML = `
-                <img id="profilePhoto" class="profile-photo" src="${data.personal.photo}" alt="${data.personal.name} Profile Photo">
-                <h1 class="name">${data.personal.name}</h1>
-                <h3 class="tagline">${data.personal.title}</h3>
-            `;
-    }
-
-    // Render contact section
-    function renderContact(data) {
-        const contactList = document.getElementById('contactList');
-        contactList.innerHTML = `
-                <li>
-                    <i class="fa-solid fa-envelope"></i>
-                    <a href="mailto:${data.contact.email}">${data.contact.email}</a>
-                </li>
-                <li>
-                    <i class="fa-brands fa-linkedin-in"></i>
-                    <a href="${data.contact.linkedinUrl}" target="_blank">${data.contact.linkedin}</a>
-                </li>
-                <li>
-                    <i class="fa-brands fa-github"></i>
-                    <a href="${data.contact.githubUrl}" target="_blank">${data.contact.github}</a>
-                </li>
-                <li>
-                    <i class="fa-brands fa-telegram"></i>
-                    <a href="${data.contact.telegramUrl}" target="_blank">${data.contact.telegram}</a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>${data.contact.location}</span>
-                </li>
-            `;
-    }
-
-    // Render education section
-    function renderEducation(data) {
-        const educationList = document.getElementById('educationList');
-        educationList.innerHTML = data.education.map(edu => `
-                <div class="item">
-                    <h4 class="degree">${edu.degree}</h4>
-                    <h5 class="meta">${edu.institution}</h5>
-                    <div class="time">${edu.period}</div>
-                </div>
-            `).join('');
-    }
-
-    // Render languages section
-    function renderLanguages(data) {
-        const languagesList = document.getElementById('languagesList');
-        languagesList.innerHTML = data.languages.map(lang => `
-                <li>${lang.language} <span class="lang-desc">(${lang.level})</span></li>
-            `).join('');
-    }
-
-    // Render interests section
-    function renderInterests(data) {
-        const interestsList = document.getElementById('interestsList');
-        interestsList.innerHTML = data.interests.map(interest => `
-                <li>${interest}</li>
-            `).join('');
-    }
-
-    // Render profile summary
-    function renderProfileSummary(data, experienceYears) {
-        const profileSummary = document.getElementById('profileSummary');
-        profileSummary.innerHTML = data.profile.summary.replace('{experience}', experienceYears);
-    }
-
-    // Render experience section
-    function renderExperience(data) {
-        const experienceList = document.getElementById('experienceList');
-        experienceList.innerHTML = data.experience.map(exp => `
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">${exp.title}</h3>
-                            <div class="time">${exp.period}</div>
-                        </div>
-                        <div class="company">${exp.company}</div>
-                    </div>
-                    <div class="details">
-                        <ul>
-                            ${exp.responsibilities.map(resp => `<li>${resp}</li>`).join('')}
-                        </ul>
-                    </div>
-                </div>
-            `).join('');
-    }
-
-    // Render skills section
-    function renderSkills(data) {
-        const skillsList = document.getElementById('skillsList');
-        skillsList.innerHTML = data.skills.map(skill => `
-                <div><h6>${skill}</h6></div>
-            `).join('');
-    }
+    // Inject Jekyll data into JavaScript for export functionality
+    const resumeData = {{ resume | jsonify }};
 
     // Initialize the application
     document.addEventListener('DOMContentLoaded', function() {
-        loadResumeData();
+        // Set data for export functions in script.js
+        if (typeof setResumeData === 'function') {
+            setResumeData(resumeData);
+        }
     });
 </script>
 

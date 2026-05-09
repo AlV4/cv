@@ -1,0 +1,15 @@
+# Jekyll configuration for Resume
+title: Oleksandr Chernyshenko Resume
+description: Professional resume of Oleksandr Chernyshenko
+
+# Build settings
+exclude:
+  - .idea
+  - .claude
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - assets/fontawesome/less
+  - assets/fontawesome/scss

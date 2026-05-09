@@ -219,9 +219,11 @@ function createWordContent(data, experienceYears) {
                 <h3 style="font-size: 14pt; color: #333; margin: 0 0 15px 0; text-transform: uppercase; border-bottom: 1px solid #666;">
                     Profile
                 </h3>
-                <p style="font-size: 11pt; line-height: 1.6; text-align: justify; margin: 0;">
-                    ${data.profile.summary.replace('{experience}', experienceYears)}
-                </p>
+                ${data.personal.summary.map(para => `
+                    <p style="font-size: 11pt; line-height: 1.6; text-align: justify; margin: 0 0 10px 0;">
+                        ${para.replace('{experience}', experienceYears)}
+                    </p>
+                `).join('')}
             </div>
             
             <!-- Experience Section -->
