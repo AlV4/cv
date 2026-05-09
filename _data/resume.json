@@ -1,13 +1,13 @@
 {
   "personal": {
     "name": "Oleksandr Chernyshenko",
-    "title": "Senior Backend Engineer",
+    "title": "Senior Backend PHP Engineer | Distributed Systems for Live Events",
     "photo": "assets/images/alex.png",
-    "startYear": 2017,
+    "startYear": 2016,
     "summary": [
-      "Senior backend engineer and tech lead with {experience}+ years building distributed PHP systems for high-stakes live events. Most recently led backend delivery on the event-management platform powering <b>Paris 2024, Milano Cortina 2026,</b> and the <b>2025 Women's Rugby World Cup</b> — designing event-driven microservices with DDD/CQRS and shipping critical-path integrations that ran live throughout the Games. Earlier work spans high-traffic media (millions DAU) and US healthcare SaaS under compliance constraints.",
-      "Core stack: <b>PHP 8</b> (Laravel/Lumen, Symfony), <b>RabbitMQ</b>, <b>Kubernetes</b> on AKS, <b>PostgreSQL</b> / <b>MongoDB</b> / <b>Redis</b>. Comfortable in Go and Java when the problem requires it.",
-      "Care about clean architecture, code the team can still maintain in two years, and pragmatic tradeoffs over dogma. Based in Valencia, Spain — open to senior backend / tech lead roles, remote or hybrid, across Europe and the US."
+      "Senior Backend Engineer with {experience}+ years building distributed high-load PHP systems using Laravel, Lumen, Symfony, RabbitMQ, Kubernetes (AKS), PostgreSQL, MongoDB, and Redis. Led backend delivery on a 50-microservice event-management platform deployed at the <b>Milano Cortina 2026 Winter Olympics</b> and the <b>2025 Women's Rugby World Cup</b>, supporting hundreds of thousands of participants per event cycle. Replaced synchronous polling with event-driven CDC pipelines over RabbitMQ in the Arrivals & Departures Service, keeping tens of thousands of records continuously in sync across multiple upstream services.",
+      "Shipped real-time integration with Milan airport's flight API that ran live throughout Milano Cortina 2026 Olympics, powering hundreds of daily participant transfers. Domain experience spans Olympic-scale event systems (Wiz-Team, Switzerland), high-traffic video streaming with millions of DAU (MindGeek, Canada), US healthcare SaaS under compliance constraints (Tonic Health), and high-load iGaming (Evoplay).",
+      "Mentored mid-level engineers through code review and pairing; rotated on production on-call. Comfortable in Go and Java when the problem requires it. Based in Valencia, Spain — open to senior backend / tech lead roles, remote or hybrid, across Europe and the US."
     ]
   },
   "contact": {
@@ -21,26 +21,27 @@
     "telegramUrl": "https://t.me/alex_prg"
   },
   "skills": [
-    "Architecture: Microservices, REST API, SOLID, Domain-Driven Design (DDD), CQRS, Event-Driven Architecture, Clean Architecture",
-    "Languages: PHP 7/8, JavaScript, Golang, Java, Python (basic)",
-    "Frameworks: Symfony, Laravel, Yii; Vue.js, jQuery",
-    "Databases & Messaging: PostgreSQL, MySQL, Redis, MongoDB, RabbitMQ",
-    "Infrastructure: Docker, Kubernetes, Linux, CI/CD",
-    "Testing: PHPUnit, Selenium, MockServer",
-    "Tools: Git, GitHub, GitLab, Bitbucket, PhpStorm"
+    "Architecture: Microservices, Event-Driven, DDD, CQRS, REST API Design, Clean Architecture, System Design",
+    "Languages: PHP 7/8, JavaScript, Go (working knowledge), Java (working knowledge), Python (basic)",
+    "Backend Frameworks: Laravel, Lumen, Symfony, Yii; FrankenPHP",
+    "Data & Messaging: PostgreSQL, MySQL, MongoDB, Redis, RabbitMQ, CDC pipelines",
+    "Cloud & Infrastructure: Kubernetes (AKS), Docker, Linux",
+    "Testing & Quality: PHPUnit, Selenium, MockServer, code review, TDD",
+    "Monitoring & Observability: Datadog, structured logging",
+    "AI Tooling: Claude Code, Cursor, GitHub Copilot"
   ],
   "experience": [
     {
-      "title": "Senior Backend Engineer",
-      "company": "Wiz-Team, Kyiv, Ukraine (Remote)",
-      "period": "2023 - now",
+      "title": "Senior Backend Engineer (Tech Lead)",
+      "company": "Wiz-Team, Lausanne, Switzerland (Remote)",
+      "period": "Aug 2023 - Apr 2026",
       "responsibilities": [
-        "Leading backend development of a core microservice in a distributed event-support platform used at major international sports events (Paris 2024, Milano Cortina 2026)",
-        "Designing and building microservice features using DDD and CQRS, aligning with shared architecture standards across the product",
-        "Contributing to several microservices across the company, reviewing code and driving consistency in quality and patterns",
-        "Integrating new services with legacy monolith components, keeping the system stable during incremental migration",
-        "Collaborating closely with product, QA, and other backend teams in a distributed, remote-first setup",
-        "Stack: PHP 8, Laravel/Lumen, PostgreSQL, RabbitMQ, Redis, Docker, Kubernetes, Git, CI/CD"
+        "Led backend engineering across flagship modules of a 50-microservice event-management platform deployed at the Milano Cortina 2026 Winter Olympics and the 2025 Women's Rugby World Cup, supporting hundreds of thousands of participants per event cycle.",
+        "Eliminated synchronous polling and stale-data risk in the Arrivals & Departures Service (m-ads) by designing and delivering an event-driven CDC pipeline over RabbitMQ — keeping tens of thousands of participant records continuously in sync with multiple upstream services with sub-second propagation, replacing the previous polling-based sync.",
+        "Powered live participant transfer scheduling for Milano Cortina 2026 Olympics by shipping real-time integration with Milan airport's flight API — combined live lookups with async batch sync to handle volatile flight data closer to departure, supporting hundreds of daily transfers throughout the Games.",
+        "Unblocked iterative frontend modernization across hundreds of customizable forms (participants, teams, sport-specific data) by extracting form storage out of the legacy CodeIgniter monolith into a dedicated MongoDB-backed microservice as lead engineer on FormBuilder v2 — chose MongoDB over relational storage for the document-oriented form schema.",
+        "Improved team delivery quality by mentoring a mid-level backend engineer through continuous code review and pairing, co-designing system-architecture tradeoffs with the platform architect (event-driven vs synchronous, document vs relational storage), and rotating on production on-call to debug data-sync incidents on critical paths.",
+        "Stack: PHP 8 (Laravel/Lumen, Symfony), PostgreSQL, MongoDB, MySQL, Redis, RabbitMQ (CDC), Kubernetes (AKS), Docker, FrankenPHP, CI/CD."
       ]
     },
     {
