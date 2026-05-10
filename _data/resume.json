@@ -5,7 +5,7 @@
     "photo": "assets/images/alex.png",
     "startYear": 2016,
     "summary": [
-      "Senior Backend Engineer with {experience}+ years building distributed high-load PHP systems using Laravel, Lumen, Symfony, RabbitMQ, Kubernetes (AKS), PostgreSQL, MongoDB, and Redis. Led backend delivery on a 50-microservice event-management platform deployed at the <b>Paris 2024 Summer Olympics</b>, <b>Milano Cortina 2026 Winter Olympics</b> and the <b>2025 Women's Rugby World Cup</b>, supporting hundreds of thousands of participants per event cycle. Replaced synchronous polling with event-driven CDC pipelines over RabbitMQ in the Arrivals & Departures Service, keeping tens of thousands of records continuously in sync across multiple upstream services.",
+      "Senior Backend Engineer and Tech Lead with {experience}+ years building distributed high-load PHP systems using Laravel, Lumen, Symfony, RabbitMQ, Kubernetes (AKS), PostgreSQL, MongoDB, and Redis. Led backend delivery on a 50-microservice event-management platform deployed at the <b>Paris 2024 Summer Olympics</b>, <b>Milano Cortina 2026 Winter Olympics</b>, and the <b>2025 Women's Rugby World Cup</b>, supporting hundreds of thousands of participants per event cycle. Replaced synchronous polling with event-driven CDC pipelines over RabbitMQ in the Arrivals & Departures Service, keeping tens of thousands of records continuously in sync across multiple upstream services.",
       "Shipped real-time integration with Milan airport's flight API that ran live throughout Milano Cortina 2026 Olympics, powering hundreds of daily participant transfers. Domain experience spans Olympic-scale event systems (Wiz-Team, Switzerland), high-traffic video streaming with millions of DAU (MindGeek, Canada), US healthcare SaaS under compliance constraints (Tonic Health), and high-load iGaming (Evoplay).",
       "Mentored mid-level engineers through code review and pairing; rotated on production on-call. Comfortable in Go and Java when the problem requires it. Based in Valencia, Spain — open to senior backend / tech lead roles, remote or hybrid, across Europe and the US."
     ]
@@ -32,15 +32,15 @@
   ],
   "experience": [
     {
-      "title": "Senior Backend Engineer (Tech Lead)",
+      "title": "Senior PHP Backend Engineer (Tech Lead)",
       "company": "Wiz-Team, Lausanne, Switzerland - Remote",
       "period": "Aug 2023 - Apr 2026",
       "responsibilities": [
         "Led backend engineering across flagship modules of a 50-microservice event-management platform deployed at the Paris 2024 Summer Olympics, Milano Cortina 2026 Winter Olympics, and the 2025 Women's Rugby World Cup, supporting hundreds of thousands of participants per event cycle.",
-        "Eliminated synchronous polling and stale-data risk in the Arrivals & Departures Service (m-ads) by designing and delivering an event-driven CDC pipeline over RabbitMQ — keeping tens of thousands of participant records continuously in sync with multiple upstream services, replacing the previous polling-based architecture.",
-        "Powered live participant transfer scheduling for Milano Cortina 2026 Olympics by shipping real-time integration with Milan airport's flight API — combined live lookups with async batch sync to handle volatile flight data closer to departure, supporting hundreds of daily transfers throughout the Games.",
-        "Unblocked iterative frontend modernization across hundreds of customizable forms (participants, teams, sport-specific data) by extracting form storage out of the legacy CodeIgniter monolith into a dedicated MongoDB-backed microservice as lead engineer on FormBuilder v2 — chose MongoDB over relational storage for the document-oriented form schema.",
-        "Improved team delivery quality by mentoring a mid-level backend engineer through continuous code review and pairing, co-designing system-architecture tradeoffs with the platform architect (event-driven vs synchronous, document vs relational storage), and rotating on production on-call to debug data-sync incidents on critical paths.",
+        "<b>Eliminated synchronous polling and stale-data risk</b> in the Arrivals & Departures Service (m-ads) by designing and delivering an event-driven CDC pipeline over RabbitMQ — keeping tens of thousands of participant records continuously in sync with multiple upstream services, replacing the previous polling-based architecture.",
+        "<b>Powered live participant transfer scheduling for Milano Cortina 2026 Olympics</b> by shipping real-time integration with Milan airport's flight API — combined live lookups with async batch sync to handle volatile flight data closer to departure, supporting hundreds of daily transfers throughout the Games.",
+        "<b>Unblocked iterative frontend modernization across hundreds of customizable forms</b> (participants, teams, sport-specific data) by extracting form storage out of the legacy CodeIgniter monolith into a dedicated MongoDB-backed microservice as lead engineer on FormBuilder v2 — chose MongoDB over relational storage for the document-oriented form schema.",
+        "<b>Improved team delivery quality</b> by mentoring a mid-level backend engineer through continuous code review and pairing, co-designing system-architecture tradeoffs with the platform architect (event-driven vs synchronous, document vs relational storage), and rotating on production on-call to debug data-sync incidents on critical paths.",
         "Stack: PHP 8 (Laravel/Lumen, Symfony), PostgreSQL, MongoDB, MySQL, Redis, RabbitMQ (CDC), Kubernetes (AKS), Docker, FrankenPHP, Datadog, OpenAPI/Swagger, CI/CD."
       ]
     },
@@ -60,7 +60,7 @@
       "company": "MindGeek, Montreal, Canada - Remote",
       "period": "Aug 2021 - Jul 2022",
       "responsibilities": [
-        "Backend engineer on the Trust & Safety team of a high-traffic video streaming platform with millions of daily active users — building and maintaining the moderation infrastructure used internally by content reviewers to screen user-uploaded videos, GIFs, and images for prohibited content (violence, child safety violations, hate speech).",
+        "Backend engineer on the <b>Trust & Safety team</b> of a high-traffic video streaming platform with millions of daily active users — building and maintaining the moderation infrastructure used internally by content reviewers to screen user-uploaded videos, GIFs, and images for prohibited content (violence, child safety violations, hate speech).",
         "Integrated a third-party content classification service into the moderation pipeline to automatically flag prohibited language (slurs, hate speech, racial content) in submission metadata, reducing manual review load on moderators.",
         "Built timestamp-based reporting mechanism allowing users to mark precise moments in videos when filing complaints, giving moderators direct in-context evidence for review decisions.",
         "Maintained and extended complex status workflow logic for moderation states across videos, GIFs, and images — covering transitions between submission, automated screening, manual review, approval/rejection, and post-publication adjustments.",
@@ -73,20 +73,20 @@
       "period": "Feb 2018 - Aug 2021",
       "responsibilities": [
         "Backend engineer on a high-load iGaming platform with ~200 games, B2B partner integrations, and internal tooling. Contributed to incremental migration of a legacy monolithic core into microservices while keeping the live platform stable during rollout.",
-        "Designed and built an end-to-end UI testing framework for HTML5 canvas-based games — standard Selenium selectors (XPath, CSS) cannot reach canvas elements, so I implemented coordinate-based click interactions, multi-threaded parallel test execution, screenshot capture on failures, and JavaScript-injected click visualization for debugging. Enabled smoke testing across the entire ~200-game catalog in ~40 minutes, integrated into the master-branch CI pipeline.",
-        "Restored team test discipline by reducing integration test runtime from ~1 hour to ~10 minutes: separated previously-mixed unit and integration tests, identified slow paths in integration runs, and brought tests back into regular CI flow after the team had stopped running them due to runtime cost.",
+        "<b>Designed and built an end-to-end UI testing framework for HTML5 canvas-based games</b> — standard Selenium selectors (XPath, CSS) cannot reach canvas elements, so I implemented coordinate-based click interactions, multi-threaded parallel test execution, screenshot capture on failures, and JavaScript-injected click visualization for debugging. Enabled smoke testing across the entire ~200-game catalog in ~40 minutes, integrated into the master-branch CI pipeline.",
+        "<b>Restored team test discipline by reducing integration test runtime from ~1 hour to ~10 minutes</b>: separated previously-mixed unit and integration tests, identified slow paths in integration runs, and brought tests back into regular CI flow after the team had stopped running them due to runtime cost.",
         "Built admin SPA (Vue.js + Symfony, Dockerized) for partner settlements and mutual financial accounting with B2B casino operators using the platform's games.",
         "Owned production deployment of new games and version updates; rotated on PagerDuty on-call, investigating session-drop alerts and other anomalies on the live platform.",
         "Stack: PHP, Symfony, Vue.js, MySQL, Redis, Docker, Selenium WebDriver, PHPUnit, MockServer."
       ]
     },
     {
-      "title": "Backend PHP Engineer",
-      "company": "Earlier Experience",
+      "title": "Earlier Experience",
+      "company": "Backend Engineer - Multiple roles",
       "period": "Dec 2015 - Jan 2018",
       "responsibilities": [
-        "Backend Engineer at Fresh Design Agency, Kyiv (2017 – 2018) — Built a booking system from scratch on Yii2 (domain logic, REST API, admin flows); maintained multiple client projects in parallel.",
-        "Backend Engineer at Monsterleads.pro, Kyiv (2016 – 2017) — Designed the company's public REST API with OAuth authentication; integrated payment providers (PayPal, PayU) and messaging APIs (Telegram).",
+        "Backend PHP Engineer at Fresh Design Agency, Kyiv (2017 – 2018) — Built a booking system from scratch on Yii2 (domain logic, REST API, admin flows); maintained multiple client projects in parallel.",
+        "Backend PHP Engineer at Monsterleads.pro, Kyiv (2016 – 2017) — Designed the company's public REST API with OAuth authentication; integrated payment providers (PayPal, PayU) and messaging APIs (Telegram).",
         "Web Software Developer at Easy Hotel Management System, Kyiv (2015 – 2016) — Online hotel management system in PHP/PostgreSQL; introduced automated UI testing using Selenium WebDriver with Python.",
         "Stack across roles: PHP, Yii2, PostgreSQL, MySQL, JavaScript, jQuery, Selenium, Python."
       ]
