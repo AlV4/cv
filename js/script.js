@@ -109,15 +109,18 @@ function showErrorMessage(message) {
 async function exportToPDF() {
     showLoading();
 
+    const element = document.getElementById('resumeContent');
+
     try {
         const data = await getResumeData();
-        const element = document.getElementById('resumeContent');
         if (!element) {
             throw new Error('Resume content not found');
         }
 
+        element.classList.add('pdf-export');
+
         const options = {
-            margin: [10, 10, 10, 10],
+            margin: 0,
             filename: data.config.filename.pdf,
             image: {
                 type: 'jpeg',
@@ -127,12 +130,18 @@ async function exportToPDF() {
                 scale: 2,
                 useCORS: true,
                 letterRendering: true,
-                allowTaint: true
+                allowTaint: true,
+                backgroundColor: '#ffffff'
             },
             jsPDF: {
                 unit: 'mm',
                 format: 'a4',
-                orientation: 'portrait'
+                orientation: 'portrait',
+                compress: true
+            },
+            pagebreak: {
+                mode: ['css', 'legacy'],
+                avoid: ['.item', '.skillset > div', '.section-title', '.upper-row', '.education-container .item']
             }
         };
 
@@ -142,6 +151,9 @@ async function exportToPDF() {
         console.error('Error generating PDF:', error);
         showErrorMessage('Error generating PDF. Please try again.');
     } finally {
+        if (element) {
+            element.classList.remove('pdf-export');
+        }
         hideLoading();
     }
 }

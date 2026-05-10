@@ -527,6 +527,178 @@ input:checked + .toggle-slider:before {
     }
 }
 
+/* PDF Export Styles
+   Applied via .pdf-export class added by exportToPDF() before html2pdf renders.
+   Switches layout to flexbox — html2canvas mis-renders the default position:absolute
+   sidebar (parent height comes from a sibling, so the sidebar disappears). */
+.pdf-export {
+    display: flex;
+    align-items: stretch;
+    background: #fff;
+    box-shadow: none;
+    border-radius: 0;
+    max-width: 100%;
+    width: 800px;
+    margin: 0;
+    min-height: 0;
+    overflow: visible;
+}
+
+.pdf-export .sidebar-wrapper {
+    position: static;
+    width: 220px;
+    flex-shrink: 0;
+    min-height: 0;
+    height: auto;
+}
+
+.pdf-export .main-wrapper {
+    flex: 1;
+    margin-left: 0;
+    padding: 24px 28px;
+    min-height: 0;
+}
+
+.pdf-export .profile-container {
+    padding: 22px 18px;
+}
+
+.pdf-export .profile-photo {
+    width: 100px;
+    height: 130px;
+    margin-bottom: 12px;
+}
+
+.pdf-export .name {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.pdf-export .tagline {
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.pdf-export .container-block {
+    padding: 16px 18px;
+}
+
+.pdf-export .container-block-title {
+    font-size: 13px;
+    margin-bottom: 10px;
+    letter-spacing: 0.4px;
+}
+
+.pdf-export .contact-list li {
+    margin-bottom: 8px;
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+.pdf-export .contact-list i,
+.pdf-export .contact-list svg {
+    margin-right: 10px;
+    font-size: 12px;
+    width: 14px;
+}
+
+.pdf-export .education-container .item {
+    margin-bottom: 10px;
+}
+
+.pdf-export .degree {
+    font-size: 12px;
+    line-height: 1.3;
+    margin-bottom: 3px;
+}
+
+.pdf-export .education-container .meta,
+.pdf-export .education-container .time {
+    font-size: 11px;
+}
+
+.pdf-export .interests-list li {
+    margin-bottom: 5px;
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+.pdf-export .section {
+    margin-bottom: 16px;
+}
+
+.pdf-export .section-title {
+    font-size: 15px;
+    margin-bottom: 12px;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+.pdf-export .icon-holder {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.pdf-export .icon-holder img {
+    width: 12px;
+    height: 12px;
+}
+
+.pdf-export .summary p {
+    font-size: 11.5px;
+    line-height: 1.45;
+    margin: 0 0 8px 0;
+    text-align: justify;
+}
+
+.pdf-export .skillset > div {
+    margin-bottom: 5px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.pdf-export .skillset h6 {
+    font-size: 11.5px;
+    line-height: 1.4;
+}
+
+.pdf-export .item {
+    margin-bottom: 14px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.pdf-export .upper-row {
+    margin-bottom: 3px;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+.pdf-export .job-title {
+    font-size: 13px;
+}
+
+.pdf-export .time {
+    font-size: 11px;
+}
+
+.pdf-export .company {
+    font-size: 11.5px;
+    margin-bottom: 6px;
+}
+
+.pdf-export .details ul {
+    padding-left: 16px;
+    margin: 0;
+}
+
+.pdf-export .details li {
+    margin-bottom: 4px;
+    line-height: 1.4;
+    font-size: 11.5px;
+}
+
 /* Print Styles */
 @media print {
     .export-controls {

@@ -17,7 +17,8 @@
       "Bash(curl -sSL -o profile.png \"https://raw.githubusercontent.com/google/material-design-icons/master/png/social/person/materialicons/48dp/2x/baseline_person_black_48dp.png\")",
       "Bash(curl -sSL -o experience.png \"https://raw.githubusercontent.com/google/material-design-icons/master/png/action/work/materialicons/48dp/2x/baseline_work_black_48dp.png\")",
       "Bash(curl -sSL -o skills.png \"https://raw.githubusercontent.com/google/material-design-icons/master/png/action/rocket_launch/materialicons/48dp/2x/baseline_rocket_launch_black_48dp.png\")",
-      "Bash(file *.png)"
+      "Bash(file *.png)",
+      "Bash(pdftotext -layout \"C:/workspace/cv/cv.pdf\" \"C:/workspace/cv/cv-text.txt\")"
     ]
   }
 }
