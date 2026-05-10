@@ -1,7 +1,7 @@
 {
   "personal": {
     "name": "Oleksandr Chernyshenko",
-    "title": "Senior Backend PHP Engineer | Distributed Systems for Live Events",
+    "title": "Senior PHP Backend Engineer | Distributed Systems for Live Events",
     "photo": "assets/images/alex.png",
     "startYear": 2016,
     "summary": [
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "title": "Backend PHP Engineer",
+      "title": "PHP Backend Engineer",
       "company": "Tonic Health, Chicago IL, USA - Remote",
       "period": "Aug 2022 - Jul 2023",
       "responsibilities": [
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "title": "Backend PHP Engineer",
+      "title": "PHP Backend Engineer",
       "company": "MindGeek, Montreal, Canada - Remote",
       "period": "Aug 2021 - Jul 2022",
       "responsibilities": [
@@ -68,7 +68,7 @@
       ]
     },
     {
-      "title": "Backend PHP Engineer",
+      "title": "PHP Backend Engineer",
       "company": "Evoplay Entertainment, Kyiv, Ukraine",
       "period": "Feb 2018 - Aug 2021",
       "responsibilities": [
@@ -85,8 +85,8 @@
       "company": "Backend Engineer - Multiple roles",
       "period": "Dec 2015 - Jan 2018",
       "responsibilities": [
-        "Backend PHP Engineer at Fresh Design Agency, Kyiv (2017 – 2018) — Built a booking system from scratch on Yii2 (domain logic, REST API, admin flows); maintained multiple client projects in parallel.",
-        "Backend PHP Engineer at Monsterleads.pro, Kyiv (2016 – 2017) — Designed the company's public REST API with OAuth authentication; integrated payment providers (PayPal, PayU) and messaging APIs (Telegram).",
+        "PHP Backend Engineer at Fresh Design Agency, Kyiv (2017 – 2018) — Built a booking system from scratch on Yii2 (domain logic, REST API, admin flows); maintained multiple client projects in parallel.",
+        "PHP Backend Engineer at Monsterleads.pro, Kyiv (2016 – 2017) — Designed the company's public REST API with OAuth authentication; integrated payment providers (PayPal, PayU) and messaging APIs (Telegram).",
         "Web Software Developer at Easy Hotel Management System, Kyiv (2015 – 2016) — Online hotel management system in PHP/PostgreSQL; introduced automated UI testing using Selenium WebDriver with Python.",
         "Stack across roles: PHP, Yii2, PostgreSQL, MySQL, JavaScript, jQuery, Selenium, Python."
       ]
