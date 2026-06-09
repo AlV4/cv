@@ -145,7 +145,31 @@ async function exportToPDF() {
             }
         };
 
-        await html2pdf().set(options).from(element).save();
+        // Build the PDF, then drop any trailing pages that hold no main-column
+        // content. html2pdf slices one tall canvas into A4 pages with
+        // Math.ceil(), so a few px of overflow (or the stretched sidebar band)
+        // produces a near-empty extra page. We inspect the rendered canvas and
+        // delete blank trailing pages before saving. Mutating prop.pdf before
+        // .save() is the documented pattern and persists into the output.
+        let renderedCanvas = null;
+        await html2pdf()
+            .set(options)
+            .from(element)
+            .toContainer()
+            .toCanvas()
+            .get('canvas').then(function (canvas) { renderedCanvas = canvas; })
+            .toImg()
+            .toPdf()
+            .get('pdf').then(function (pdf) {
+                try {
+                    removeTrailingBlankPages(pdf, renderedCanvas);
+                } catch (trimError) {
+                    // Non-fatal: fall back to the full document if the canvas
+                    // can't be inspected (e.g. a tainted canvas blocks reads).
+                    console.warn('Skipped blank-page trim:', trimError);
+                }
+            })
+            .save();
 
     } catch (error) {
         console.error('Error generating PDF:', error);
@@ -156,6 +180,77 @@ async function exportToPDF() {
         }
         hideLoading();
     }
+}
+
+/**
+ * Delete trailing PDF pages whose main content column is blank.
+ *
+ * html2pdf maps the full-width canvas onto the page width, so one A4 page
+ * corresponds to `canvas.width * (pageHeight / pageWidth)` canvas pixels. We
+ * walk pages from the last one up and remove each whose main-column region is
+ * all white, stopping at the first page that still has content. The sidebar
+ * band (left ~27.5% of the layout) is intentionally excluded so its stretched
+ * background colour never counts as "content".
+ */
+function removeTrailingBlankPages(pdf, canvas) {
+    if (!canvas) {
+        return;
+    }
+
+    const totalPages = pdf.internal.getNumberOfPages();
+    if (totalPages <= 1) {
+        return;
+    }
+
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    const pxPerPage = canvas.width * (pageHeight / pageWidth);
+
+    const ctx = canvas.getContext('2d');
+    // Start sampling just inside the white main column (sidebar is 220/800 of
+    // the layout width); 0.30 clears the sidebar edge and its anti-aliasing.
+    const mainX = Math.round(canvas.width * 0.30);
+    const mainWidth = canvas.width - mainX;
+    if (mainWidth <= 0) {
+        return;
+    }
+
+    for (let page = totalPages; page > 1; page--) {
+        const top = Math.floor((page - 1) * pxPerPage);
+        const bottom = Math.min(canvas.height, Math.floor(page * pxPerPage));
+        const height = bottom - top;
+
+        if (height <= 0) {
+            pdf.deletePage(page);
+            continue;
+        }
+
+        if (isRegionBlank(ctx, mainX, top, mainWidth, height)) {
+            pdf.deletePage(page);
+        } else {
+            break;
+        }
+    }
+}
+
+/**
+ * Returns true if a canvas region contains no visible (non-white) pixels.
+ * Samples 1 in every `stride` pixels for speed; the white page background is
+ * (255,255,255), so anything darker than ~240 counts as content.
+ */
+function isRegionBlank(ctx, x, y, width, height) {
+    const data = ctx.getImageData(x, y, width, height).data;
+    const stride = 10; // pixels
+    for (let i = 0; i < data.length; i += 4 * stride) {
+        const r = data[i];
+        const g = data[i + 1];
+        const b = data[i + 2];
+        const a = data[i + 3];
+        if (a > 10 && (r < 240 || g < 240 || b < 240)) {
+            return false;
+        }
+    }
+    return true;
 }
 
 /**
