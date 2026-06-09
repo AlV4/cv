@@ -253,9 +253,14 @@ function createWordContent(data, experienceYears) {
                                 ${exp.period}
                             </span>
                         </div>
-                        <p style="font-size: 11pt; color: #666; margin: 0 0 10px 0; font-style: italic;">
+                        <p style="font-size: 11pt; color: #666; margin: 0 0 4px 0; font-style: italic;">
                             ${exp.company}
                         </p>
+                        ${exp.companyDescription ? `
+                        <p style="font-size: 10.5pt; color: #666; margin: 0 0 10px 0; font-style: italic;">
+                            ${exp.companyDescription}
+                        </p>
+                        ` : ''}
                         <ul style="margin: 0; padding-left: 20px; font-size: 11pt; line-height: 1.4;">
                             ${exp.responsibilities.map(resp => `
                                 <li style="margin-bottom: 6px;">${resp}</li>

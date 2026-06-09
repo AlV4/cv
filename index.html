@@ -149,6 +149,9 @@
                             <div class="time">{{ exp.period }}</div>
                         </div>
                         <div class="company">{{ exp.company }}</div>
+                        {% if exp.companyDescription %}
+                        <div class="company-desc">{{ exp.companyDescription }}</div>
+                        {% endif %}
                     </div>
                     <div class="details">
                         <ul>

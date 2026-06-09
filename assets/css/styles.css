@@ -360,10 +360,18 @@ input:checked + .toggle-slider:before {
 }
 
 .company {
-    margin-bottom: 10px;
+    margin-bottom: 4px;
     color: #97AAC3;
     font-style: italic;
     font-size: 14px;
+}
+
+.company-desc {
+    margin-bottom: 12px;
+    color: #97AAC3;
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.45;
 }
 
 .details ul {
@@ -685,7 +693,13 @@ input:checked + .toggle-slider:before {
 
 .pdf-export .company {
     font-size: 11.5px;
+    margin-bottom: 3px;
+}
+
+.pdf-export .company-desc {
+    font-size: 10.5px;
     margin-bottom: 6px;
+    line-height: 1.35;
 }
 
 .pdf-export .details ul {
